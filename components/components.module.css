@@ -1,0 +1,144 @@
+.box {
+  position: relative;
+  height: 20px;
+  width: 80px;
+  border: 2px solid #f1f1f1;
+  border-radius: 1rem;
+  transition: all 0.5s;
+}
+
+
+.sun {
+  content: "";
+  height: 50px;
+  width: 50px;
+  
+  position: absolute;
+  left: 35px;
+  top: -16px;
+  display: inline-block;
+  opacity: 0;
+  transition: all 0.5s;
+  /* visibility: hidden; */
+  
+  background-image: url("assets/icons/ui/sun-icon.svg");
+  background-size: cover;
+}
+
+.moon {
+  content: "";
+  height: 50px;
+  width: 50px;
+  
+  position: absolute;
+  /* right: -17px; */
+  right: 37px;
+  top: -20px;
+  opacity: 0;
+  transition: all 0.5s;
+  
+  display: inline-block;
+  
+  background-image: url("assets/icons/ui/moon-icon.svg");
+  background-size: cover;
+}
+
+@media screen and (max-width: 500px) {
+  .box {
+    position: relative;
+    height: 15px;
+    width: 60px;
+    border: 2px solid #f1f1f1;
+    border-radius: 1rem;
+    transition: all 0.5s;
+  }
+
+  .sun {
+    content: "";
+    height: 40px;
+    width: 40px;
+  
+    position: absolute;
+    left: 35px;
+    top: -16px;
+    display: inline-block;
+    opacity: 0;
+    transition: all 0.5s;
+    /* visibility: hidden; */
+  
+    background-image: url("assets/icons/ui/sun-icon.svg");
+    background-size: cover;
+  }
+  
+  .moon {
+    content: "";
+    height: 40px;
+    width: 40px;
+  
+    position: absolute;
+    /* right: -17px; */
+    right: 37px;
+    top: -20px;
+    opacity: 0;
+    transition: all 0.5s;
+  
+    display: inline-block;
+  
+    background-image: url("assets/icons/ui/moon-icon.svg");
+    background-size: cover;
+  }
+}
+
+.sunOn {
+  opacity: 1;
+  left: -15px;
+  transform: rotate(360deg);
+}
+
+.moonOn {
+  opacity: 1;
+  right: -15px;
+  transform: rotate(360deg);
+}
+
+.buttonDark {
+  border: 2px solid gray;
+  background-color: #c2c2c2;
+}
+
+.transformSlow {
+  transition: transform 0.5s, margin 0.5s;
+}
+
+.zoomIn {
+  animation: zoomin 0.5s forwards;
+}
+
+.zoomOut {
+  animation: zoomout 0.5s forwards;
+}
+
+@keyframes zoomin {
+  100% {
+    transform: scale(3);
+    margin: calc(33.3%);
+    z-index: 9999;
+  }
+}
+
+@keyframes zoomout {
+  0% {
+    transform: scale(3);
+    margin: calc(33.3%);
+    z-index: 9999;
+  }
+  100% {
+    transform: scale(1);
+    z-index: 0;
+  }
+}
+
+.overlayBG {
+  background: #131313a4;
+  @apply text-white;
+}
