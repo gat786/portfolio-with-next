@@ -1,12 +1,12 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
-import { useState } from 'react'
+import type { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 
 import Switch from "../components/Switch";
 
-import styles from '../styles/Home.module.css'
+import styles from "../styles/Home.module.css";
 
 export interface FormState {
   name: string;
@@ -15,8 +15,7 @@ export interface FormState {
 }
 
 const Home: NextPage = () => {
-
-  const [showMenu,setShowMenu] = useState<boolean>(false);
+  const [showMenu, setShowMenu] = useState<boolean>(false);
 
   const [formState, setFormState] = useState<FormState>({
     name: "",
@@ -33,7 +32,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={``}>
-      <div className="flex dark:text-white absolute w-full top-0 z-10 justify-between p-4 md:px-16">
+        <div className="flex dark:text-white absolute w-full top-0 z-10 justify-between p-4 md:px-16">
           <Link href="/">
             <a href="">
               <Image
@@ -51,64 +50,115 @@ const Home: NextPage = () => {
                 onClick={() => {
                   setShowMenu(!showMenu);
                 }}
-                className={`md:hidden cursor-pointer ${styles.arrow} ${showMenu ? styles.dropArrow : ''}`}>
+                className={`md:hidden cursor-pointer ${styles.arrow} ${
+                  showMenu ? styles.dropArrow : ""
+                }`}
+              >
                 Menu
               </div>
-              {showMenu && <div className="flex absolute top-10 flex-col gap-4">
-              <a 
-                onClick={() => {
-                  setShowMenu(false)
-                }}
-                href={'https://blogs.gats.dev/'}
-                target="_"
-                className={`${styles.borderBottomHover} cursor-pointer`}>
-                Blogs
-              </a>
-              <a
-                href={`https://github.com/gat786`}
-                onClick={() => {
-                  setShowMenu(false)
-                }}
-                target="_"
-                className={`${styles.borderBottomHover} cursor-pointer`}>
-                Projects
-              </a>
-              <a
-                href="#social-section"
-                onClick={() => {
-                  setShowMenu(false)
-                }}
-                className={`${styles.borderBottomHover} cursor-pointer`}>
-                Connect
-              </a>
-              </div>}
+              {showMenu && (
+                <div className="flex absolute top-10 flex-col gap-4">
+                  <a
+                    onClick={() => {
+                      setShowMenu(false);
+                    }}
+                    href={"https://blogs.gats.dev/"}
+                    target="_"
+                    className={`${styles.borderBottomHover} cursor-pointer`}
+                  >
+                    Blogs
+                  </a>
+                  <a
+                    href={`https://github.com/gat786`}
+                    onClick={() => {
+                      setShowMenu(false);
+                    }}
+                    target="_"
+                    className={`${styles.borderBottomHover} cursor-pointer`}
+                  >
+                    Projects
+                  </a>
+                  <a
+                    href="#social-section"
+                    onClick={() => {
+                      setShowMenu(false);
+                    }}
+                    className={`${styles.borderBottomHover} cursor-pointer`}
+                  >
+                    Connect
+                  </a>
+                </div>
+              )}
             </div>
 
             <div className="hidden md:flex gap-6">
-              <a 
-                href={'https://blogs.gats.dev/'}
+              <a
+                href={"https://blogs.gats.dev/"}
                 target="_"
-                className={`${styles.borderBottomHover} cursor-pointer`}>
+                className={`${styles.borderBottomHover} cursor-pointer`}
+              >
                 Blogs
               </a>
               <a
                 href={`https://github.com/gat786`}
                 target="_"
-                className={`${styles.borderBottomHover} cursor-pointer`}>
+                className={`${styles.borderBottomHover} cursor-pointer`}
+              >
                 Projects
               </a>
               <a
                 href="#social-section"
-                className={`${styles.borderBottomHover} cursor-pointer`}>
+                className={`${styles.borderBottomHover} cursor-pointer`}
+              >
                 Connect
               </a>
             </div>
             <Switch />
           </div>
         </div>
+        <div
+          className={`dark:bg-black bg-gray-200 dark:text-white ${styles.scrollSnaps}`}
+        >
+          <section
+            id={`#top-section`}
+            className={`flex flex-col h-screen md:px-4`}
+          >
+            <div className="flex flex-col justify-center gap-8 md:flex-row flex-grow">
+              <div className="md:hidden flex items-center w-full justify-center">
+                <Image
+                  className="rounded-full w-1/2 border-8 border-gray-500"
+                  src={"/assets/images/profile.webp"}
+                  height={200}
+                  width={200}
+                  alt=""
+                />
+              </div>
+
+              <div className="dark:text-white text-center md:text-start text-3xl lg:text-4xl md:w-2/4 md:mli-16 mli-8 flex flex-col gap-4 justify-center">
+                Hi!
+                <div className={`inline ${styles.lastTwoBold}`}>
+                  I am Ganesh Tiwari
+                </div>
+                <div className="inline leading-relaxed">
+                  I am a Software Engineer currently working as a UI Engineer
+                </div>
+              </div>
+
+              <div className="md:flex hidden items-center w-1/4 justify-center">
+                <Image
+                  className="rounded-full border-8 max-h-96 border-gray-500"
+                  height={300}
+                  width={300}
+                  src={"/assets/images/profile.webp"}
+                  alt=""
+                />
+              </div>
+            </div>
+          </section>
+        </div>
       </main>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
