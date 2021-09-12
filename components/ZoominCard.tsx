@@ -38,6 +38,8 @@ const ZoominCard = (props: {
         className={`h-full ${
           props.customFill !== undefined ? props.customFill : "object-cover"
         }`}
+        height="200"
+        width="200"
         src={props.imageAddress}
         alt=""
       />
