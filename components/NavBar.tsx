@@ -8,9 +8,9 @@ import Switch from "./Switch";
 
 export default function NavBar() {
   const [showMenu, setShowMenu] = useState<boolean>(false);
-  
+
   return (
-    <div className="flex dark:text-white absolute w-full top-0 z-10 justify-between p-4 md:px-16">
+    <div className="flex dark:text-white w-full top-0 z-10 justify-between p-4 md:px-16">
       <Link href="/">
         <a href="">
           <Image
@@ -46,16 +46,11 @@ export default function NavBar() {
               >
                 Blogs
               </a>
-              <a
-                href={`https://github.com/gat786`}
-                onClick={() => {
-                  setShowMenu(false);
-                }}
-                target="_"
-                className={`${styles.borderBottomHover} cursor-pointer`}
-              >
-                Projects
-              </a>
+              <Link href="/projects">
+                <p className={`${styles.borderBottomHover} cursor-pointer`}>
+                  Projects
+                </p>
+              </Link>
               <a
                 href="#social-section"
                 onClick={() => {

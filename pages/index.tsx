@@ -31,7 +31,9 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={``}>
-        <NavBar />
+        <div className="absolute w-full">
+          <NavBar />
+        </div>
         <div
           className={`dark:bg-black bg-gray-200 dark:text-white ${styles.scrollSnaps}`}
         >

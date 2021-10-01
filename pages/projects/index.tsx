@@ -3,6 +3,7 @@ import fs from "fs";
 import matter from "gray-matter";
 
 import React from "react";
+import NavBar from "../../components/NavBar";
 
 export type Projects = {
   slug: string;
@@ -11,13 +12,16 @@ export type Projects = {
 
 export default function Projects(props: { projects: Projects[] }) {
   return (
-    <div>
-      {props.projects.map((project) => {
-        console.log(project.frontMatter);
+    <>
+      <NavBar />
+      <div>
+        {props.projects.map((project) => {
+          console.log(project.frontMatter);
 
-        return <div key={project.slug}>{project.slug}</div>;
-      })}
-    </div>
+          return <div key={project.slug}>{project.slug}</div>;
+        })}
+      </div>
+    </>
   );
 }
 
