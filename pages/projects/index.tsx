@@ -3,25 +3,45 @@ import fs from "fs";
 import matter from "gray-matter";
 
 import React from "react";
+import Head from "next/head";
 import NavBar from "../../components/NavBar";
+import ProjectCard from "../../components/projects/project-card";
 
 export type Projects = {
   slug: string;
-  frontMatter: any;
+  frontMatter: FrontMatter;
+};
+
+export type FrontMatter = {
+  title: string;
+  date?: string;
+  author?: string;
+  tags?: string[];
+  coverImage?: string;
 };
 
 export default function Projects(props: { projects: Projects[] }) {
   return (
-    <>
+    <div className="flex flex-col items-center">
+      <Head>
+        <title>Projects Gallery</title>
+        <meta
+          name="description"
+          content="List of projects made by Ganesh and his fellow mates"
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <NavBar />
-      <div>
+      <div className="w-full lg:w-11/12 m-8">
         {props.projects.map((project) => {
           console.log(project.frontMatter);
 
-          return <div key={project.slug}>{project.slug}</div>;
+          return (
+            <ProjectCard key={project.slug} projectInfo={project.frontMatter} />
+          );
         })}
       </div>
-    </>
+    </div>
   );
 }
 

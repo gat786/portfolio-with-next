@@ -72,13 +72,11 @@ export default function NavBar() {
           >
             Blogs
           </a>
-          <a
-            href={`https://github.com/gat786`}
-            target="_"
-            className={`${styles.borderBottomHover} cursor-pointer`}
-          >
-            Projects
-          </a>
+          <Link href="/projects">
+            <a className={`${styles.borderBottomHover} cursor-pointer`}>
+              Projects
+            </a>
+          </Link>
           <a
             href="#social-section"
             className={`${styles.borderBottomHover} cursor-pointer`}
