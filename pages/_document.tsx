@@ -7,7 +7,7 @@ class MyDocument extends Document {
         <Head>
           <meta
             property="og:image"
-            content="https://res.cloudinary.com/dtldj8hpa/image/upload/v1633188973/gats.dev/og-image.webp"
+            content="https://res.cloudinary.com/dtldj8hpa/image/upload/c_scale,h_720/v1633188973/gats.dev/og-image.webp"
           />
           <meta property="og:title" content="Ganesh Tiwari's portfolio" />
           <meta property="og:type" content="text/html" />
