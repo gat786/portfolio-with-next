@@ -10,7 +10,7 @@ export default function NavBar() {
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
   return (
-    <div className="flex dark:text-white w-full top-0 z-10 justify-between p-4 md:px-16">
+    <div className="flex bg-white dark:bg-gray-800 dark:text-white w-full top-0 z-10 justify-between p-4 md:px-16">
       <Link href="/">
         <a href="">
           <Image

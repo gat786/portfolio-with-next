@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import Image from "next/image";
 
-import styles from "./components.module.css";
+import styles from "../styles/components.module.css";
 
 export type VoidCallBack = () => void;
 export type IsSelectedCallback = (selected: boolean) => void;

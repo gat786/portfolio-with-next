@@ -1,3 +1,11 @@
+.projectCard {
+  @apply bg-white;
+  @apply dark:bg-gray-700;
+  @apply flex;
+  @apply flex-col gap-2 border;
+  @apply dark:text-white h-96 w-72 rounded-xl;
+}
+
 .box {
   position: relative;
   height: 20px;
