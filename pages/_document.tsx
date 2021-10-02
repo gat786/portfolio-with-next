@@ -6,6 +6,9 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <meta property="og:image" content="/og-image.png" />
+          <meta property="og:title" content="Ganesh Tiwari's portfolio" />
+          <meta property="og:type" content="text/html" />
+          <meta property="og:url" content="https://gats.dev" />
         </Head>
         <body>
           <Main />
