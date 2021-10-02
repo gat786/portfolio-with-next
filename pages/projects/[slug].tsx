@@ -1,21 +1,37 @@
-import React from "react";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import marked from "marked";
+
+import React from "react";
+import Image from "next/image";
+
 import { FrontMatter } from ".";
 import NavBar from "../../components/NavBar";
 
 export default function ProjectDetails(args: {
-  frontMatter: string;
+  frontMatter: FrontMatter;
   slug: string;
   markdown: string;
 }) {
   return (
     <>
       <NavBar />
-      <div className="">
-        <div>{args.markdown}</div>
+      <div className="flex flex-col items-center">
+        <div className="md:w-2/4">
+          <div className="relative h-80 my-8">
+            <Image
+              src={args.frontMatter?.coverImage ?? ""}
+              objectFit="cover"
+              layout="fill"
+              alt={`${args.slug} Cover Image`}
+            />
+          </div>
+          <div
+            className="prose"
+            dangerouslySetInnerHTML={{ __html: args.markdown }}
+          ></div>
+        </div>
       </div>
     </>
   );
