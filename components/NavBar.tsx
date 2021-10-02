@@ -11,8 +11,8 @@ export default function NavBar() {
 
   return (
     <div className="flex bg-white dark:bg-gray-800 dark:text-white w-full top-0 z-10 justify-between p-4 md:px-16">
-      <Link href="/">
-        <a href="">
+      <Link href="/#top-section">
+        <a>
           <Image
             width="100px"
             height="30px"
@@ -47,19 +47,20 @@ export default function NavBar() {
                 Blogs
               </a>
               <Link href="/projects">
-                <p className={`${styles.borderBottomHover} cursor-pointer`}>
+                <a className={`${styles.borderBottomHover} cursor-pointer`}>
                   Projects
-                </p>
+                </a>
               </Link>
-              <a
-                href="#social-section"
-                onClick={() => {
-                  setShowMenu(false);
-                }}
-                className={`${styles.borderBottomHover} cursor-pointer`}
-              >
-                Connect
-              </a>
+              <Link href="index.html/#contact-section">
+                <a
+                  onClick={() => {
+                    setShowMenu(false);
+                  }}
+                  className={`${styles.borderBottomHover} cursor-pointer`}
+                >
+                  Connect
+                </a>
+              </Link>
             </div>
           )}
         </div>
@@ -77,12 +78,11 @@ export default function NavBar() {
               Projects
             </a>
           </Link>
-          <a
-            href="#social-section"
-            className={`${styles.borderBottomHover} cursor-pointer`}
-          >
-            Connect
-          </a>
+          <Link href="/#contact-section">
+            <a className={`${styles.borderBottomHover} cursor-pointer`}>
+              Connect
+            </a>
+          </Link>
         </div>
         <Switch />
       </div>
