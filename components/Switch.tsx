@@ -2,7 +2,7 @@ import * as React from "react";
 import { useState } from "react";
 import config from "../config";
 
-import styles from "./components.module.css";
+import styles from "./components.module.scss";
 
 import { Themes, getThemeFromString } from "../util/ThemeUtil";
 

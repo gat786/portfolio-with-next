@@ -32,7 +32,7 @@ export default function Projects(props: { projects: Projects[] }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <NavBar />
-      <div className="w-full lg:w-11/12 m-8">
+      <div className="w-full lg:w-11/12 m-8 flex gap-4 flex-wrap">
         {props.projects.map((project) => {
           console.log(project.frontMatter);
 
