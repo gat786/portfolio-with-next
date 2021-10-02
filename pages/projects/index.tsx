@@ -32,7 +32,7 @@ export default function Projects(props: { projects: Projects[] }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <NavBar />
-      <div className="w-full lg:w-11/12 m-8 flex gap-4 flex-wrap">
+      <div className="w-full lg:w-11/12 m-8 flex justify-center gap-4 flex-wrap">
         {props.projects.map((project) => {
           console.log(project.frontMatter);
 
@@ -49,7 +49,7 @@ export async function getStaticProps() {
   const files = fs.readdirSync(path.join("markdown/projects"));
 
   // Get slugs and frontmatter from the posts
-  const projects = files.map((file) => {
+  let projects = files.map((file) => {
     // Get Slug from the markdown file
     const slug = file.replace(".md", "");
 
@@ -65,8 +65,6 @@ export async function getStaticProps() {
       frontMatter,
     };
   });
-
-  //   console.log(projects);
 
   return {
     props: {

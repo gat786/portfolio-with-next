@@ -7,7 +7,9 @@ import styles from "../../styles/components.module.css";
 export default function ProjectCard(props: { projectInfo: FrontMatter }) {
   const frontMatter = props.projectInfo;
   return (
-    <div className={`bg-white dark:bg-gray-700 dark:text-white h-96 w-72 rounded-xl flex flex-col gap-2 border`}>
+    <div
+      className={`bg-white dark:bg-gray-700 dark:text-white h-96 w-72 rounded-xl flex flex-col gap-2 border`}
+    >
       <div className="h-48 relative">
         <Image
           className=" rounded-t-lg"
@@ -17,12 +19,14 @@ export default function ProjectCard(props: { projectInfo: FrontMatter }) {
           alt=""
         />
       </div>
-      <div className="text-2xl font-bold mx-4">{frontMatter.title}</div>
+      <div className="text-2xl font-bold mx-4 overflow-ellipsis overflow-hidden whitespace-nowrap">
+        {frontMatter.title}
+      </div>
       <div className="mx-4">{frontMatter.author}</div>
       <div className="mx-4 text-sm">{frontMatter.date}</div>
       <div className="mx-4 text-sm text-gray-700 dark:text-gray-300 flex flex-row flex-wrap gap-x-2">
         {frontMatter.tags?.map((tag) => (
-          <div className="underline" key={tag}>
+          <div className="underline dark:hover:text-white hover:text-black cursor-pointer" key={tag}>
             {tag.toString()}
           </div>
         ))}
