@@ -18,32 +18,22 @@ const Switch = () => {
     ) {
       document.documentElement.classList.add("dark");
       localStorage.setItem(config.THEME_KEY, "dark");
-      afterChange();
     } else {
       if (document.documentElement.classList.contains("dark")) {
         document.documentElement.classList.remove("dark");
         localStorage.setItem(config.THEME_KEY, "light");
-        afterChange();
       }
     }
   };
 
-  function afterChange() {
-    console.log({ after_change: localStorage.getItem(config.THEME_KEY) });
-  }
-
   React.useEffect(() => {
     const currentTheme = localStorage.getItem(config.THEME_KEY);
-
-    console.log({ initial_load: currentTheme });
 
     const themeToSet = getThemeFromString({
       themeName: currentTheme ?? undefined,
     });
 
     if (theme !== themeToSet) {
-      console.log({ theme, themeToSet });
-
       setTheme(themeToSet);
     }
   }, []);

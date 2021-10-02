@@ -34,10 +34,12 @@ export default function Projects(props: { projects: Projects[] }) {
       <NavBar />
       <div className="w-full lg:w-11/12 m-8 flex justify-center gap-4 flex-wrap">
         {props.projects.map((project) => {
-          console.log(project.frontMatter);
-
           return (
-            <ProjectCard key={project.slug} projectInfo={project.frontMatter} />
+            <ProjectCard
+              key={project.slug}
+              slug={project.slug}
+              projectInfo={project.frontMatter}
+            />
           );
         })}
       </div>
