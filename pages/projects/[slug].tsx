@@ -8,6 +8,7 @@ import Image from "next/image";
 
 import { FrontMatter } from ".";
 import NavBar from "../../components/NavBar";
+import Head from "next/head";
 
 export default function ProjectDetails(args: {
   frontMatter: FrontMatter;
@@ -16,6 +17,9 @@ export default function ProjectDetails(args: {
 }) {
   return (
     <>
+      <Head>
+        <meta title={args.frontMatter.title}/>
+      </Head>
       <NavBar />
       <div className="flex flex-col items-center">
         <div className="md:w-2/4">
@@ -28,7 +32,7 @@ export default function ProjectDetails(args: {
             />
           </div>
           <div
-            className="prose"
+            className="prose dark:prose-dark"
             dangerouslySetInnerHTML={{ __html: args.markdown }}
           ></div>
         </div>
