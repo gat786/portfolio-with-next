@@ -74,7 +74,7 @@ export async function getStaticProps(args: { params: { slug: string } }) {
 
   const { data: frontMatter, content } = matter(markdownWithMeta);
 
-  const markdown = marked(content);
+  const markdown = marked(content, { gfm: true });
 
   return {
     props: {
