@@ -13,7 +13,7 @@ export default function ProjectCard(props: {
   return (
     <Link href={`/projects/${props.slug}`}>
       <a
-        className={`bg-white dark:bg-gray-700 dark:text-white h-96 w-72 rounded-xl flex flex-col gap-2 border`}
+        className={`bg-white dark:bg-gray-700 dark:text-white h-96 w-72 rounded-xl flex flex-col gap-2 border dark:border-gray-500`}
       >
         <div className="h-48 relative">
           <Image

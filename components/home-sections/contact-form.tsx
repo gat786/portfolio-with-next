@@ -117,7 +117,7 @@ export default function ContactForm() {
       </form>
 
       <div
-        className={`mlb-8 flex items-center  md:w-1/4 ${styles.hideWhenSmall}`}
+        className={`mlb-8 flex items-center  md:w-1/6 ${styles.hideWhenSmall}`}
       >
         <Lottie
           speed={0.5}
