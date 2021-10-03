@@ -34,7 +34,7 @@ export default function ProjectDetails(args: {
           />
         </div>
         <div className="w-11/12 lg:w-2/4">
-          <div className="flex gap-4 mlb-8 font-semibold">
+          <div className="flex gap-4 mlb-8 font-semibold text-sm lg:text-base">
             <span>Posted Date - {args.frontMatter.date}</span>
             <span>Author Name - {args.frontMatter.author}</span>
           </div>
