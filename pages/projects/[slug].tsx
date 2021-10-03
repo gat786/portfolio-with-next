@@ -15,26 +15,35 @@ export default function ProjectDetails(args: {
   slug: string;
   markdown: string;
 }) {
+  console.log(args.frontMatter);
+
   return (
     <>
       <Head>
-        <meta title={args.frontMatter.title}/>
+        <title>{args.frontMatter.title}</title>
+        <meta title={args.frontMatter.title} />
       </Head>
       <NavBar />
       <div className="flex flex-col items-center">
-        <div className="md:w-2/4">
-          <div className="relative h-80 my-8">
-            <Image
-              src={args.frontMatter?.coverImage ?? ""}
-              objectFit="cover"
-              layout="fill"
-              alt={`${args.slug} Cover Image`}
-            />
+        <div className="relative h-80 lg:h-96 mbe-8 w-full lg:w-2/4">
+          <Image
+            src={args.frontMatter?.coverImage ?? ""}
+            objectFit="contain"
+            layout="fill"
+            alt={`${args.slug} Cover Image`}
+          />
+        </div>
+        <div className="w-11/12 lg:w-2/4">
+          <div className="flex gap-4 mlb-8 font-semibold">
+            <span>Posted Date - {args.frontMatter.date}</span>
+            <span>Author Name - {args.frontMatter.author}</span>
           </div>
           <div
-            className="prose dark:prose-dark"
+            className="prose-xl dark:prose-dark mlb-8 mbe-16"
             dangerouslySetInnerHTML={{ __html: args.markdown }}
           ></div>
+
+          {/* <div>{args.frontMatter.tags?.map((tag) => tag.toString)}</div> */}
         </div>
       </div>
     </>
