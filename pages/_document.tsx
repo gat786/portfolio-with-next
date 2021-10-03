@@ -12,6 +12,10 @@ class MyDocument extends Document {
           <meta property="og:title" content="Ganesh Tiwari's portfolio" />
           <meta property="og:type" content="text/html" />
           <meta property="og:url" content="https://gats.dev" />
+
+          <meta name="twitter:card" content="summary"></meta>
+          <meta name="twitter:site" content="@igat786" />
+          <meta name="twitter:creator" content="@igat786" />
         </Head>
         <body>
           <Main />
