@@ -29,6 +29,7 @@
     "marked": "^3.0.4",
     "postcss": "^8.3.6",
     "tailwindcss": "^2.2.15",
+    "tailwindcss-logical": "^2.0.0",
     "typescript": "4.4.3"
   }
 }

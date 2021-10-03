@@ -28,6 +28,11 @@ class MyDocument extends Document {
           ></meta>
           <meta name="twitter:site" content="@igat786" />
           <meta name="twitter:creator" content="@igat786" />
+
+          <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+          ></link>
         </Head>
         <body>
           <Main />

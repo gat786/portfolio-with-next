@@ -35,7 +35,7 @@ export default function NavBar() {
             Menu
           </div>
           {showMenu && (
-            <div className="flex absolute top-10 flex-col gap-4">
+            <div className="flex bg-white dark:bg-gray-800 rounded-b-xl plb-4 px-4 absolute top-10 -left-4 flex-col gap-4">
               <a
                 onClick={() => {
                   setShowMenu(false);
