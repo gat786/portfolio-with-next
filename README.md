@@ -1,4 +1,13 @@
+# Ganesh Tiwari's Personal Static Website
+
+This website is Ganesh's Personal Website hosted at https://gats.dev and is 
+made with the help of Next.JS. This is hosted on [Netlify](https://netlify.com) 
+and is made to showcase projects, blogs and content made by him and make it 
+available in one place.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+The content on this website is Licensed under MIT License and is Open to be copied and used somewhere else.
 
 ## Getting Started
 
@@ -12,11 +21,6 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
 ## Learn More
 
