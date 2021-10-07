@@ -6,6 +6,7 @@ import React from "react";
 import Head from "next/head";
 import NavBar from "../../components/NavBar";
 import ProjectCard from "../../components/projects/project-card";
+import Footer from "../../components/Footer";
 
 export type Projects = {
   slug: string;
@@ -43,6 +44,7 @@ export default function Projects(props: { projects: Projects[] }) {
           );
         })}
       </div>
+      <Footer />
     </div>
   );
 }

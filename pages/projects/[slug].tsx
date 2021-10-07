@@ -9,13 +9,14 @@ import Image from "next/image";
 import { FrontMatter } from ".";
 import NavBar from "../../components/NavBar";
 import Head from "next/head";
+import Footer from "../../components/Footer";
 
 export default function ProjectDetails(args: {
   frontMatter: FrontMatter;
   slug: string;
   markdown: string;
 }) {
-  console.log(args.frontMatter);
+  console.log(args.frontMatter?.tags);
 
   return (
     <>
@@ -43,9 +44,23 @@ export default function ProjectDetails(args: {
             dangerouslySetInnerHTML={{ __html: args.markdown }}
           ></div>
 
-          {/* <div>{args.frontMatter.tags?.map((tag) => tag.toString)}</div> */}
+          <div className="flex gap-4 mlb-12">
+            Tags -
+            <div className="text-gray-400 flex gap-4">
+              {args?.frontMatter.tags?.map((tag) => (
+                <div
+                  className="underline dark:hover:text-white hover:text-black cursor-pointer"
+                  key={tag}
+                >
+                  {tag.toString()}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
+
+      <Footer />
     </>
   );
 }
