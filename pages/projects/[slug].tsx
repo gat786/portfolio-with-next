@@ -16,8 +16,6 @@ export default function ProjectDetails(args: {
   slug: string;
   markdown: string;
 }) {
-  console.log(args.frontMatter?.tags);
-
   return (
     <>
       <Head>
