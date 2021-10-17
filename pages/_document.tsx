@@ -35,7 +35,7 @@ class MyDocument extends Document {
           ></link>
 
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-73HJP7Z4Z2"></script>
-          <script async src="public/analytics.js"></script>
+          <script async src="analytics.js"></script>
         </Head>
         <body>
           <Main />
