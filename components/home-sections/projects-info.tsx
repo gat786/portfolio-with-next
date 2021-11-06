@@ -45,7 +45,7 @@ export default function ProjectsInfo() {
               </p>
             </a>
           </Link>
-          <Link href={"/projects"}>
+          <Link href={"/demos"}>
             <a className={`${styles.hoverHighlight}`}>
               <p className="flex items-center gap-4">
                 See all demos <i className="material-icons">chevron_right</i>
