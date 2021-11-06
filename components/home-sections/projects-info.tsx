@@ -3,6 +3,7 @@ import CustomTooltip from "../CustomTooltip";
 import ZoominCard from "../ZoominCard";
 
 import styles from "../../styles/Home.module.css";
+import Link from "next/link";
 
 export default function ProjectsInfo() {
   return (
@@ -35,6 +36,22 @@ export default function ProjectsInfo() {
             Server. &nbsp;
             <CustomTooltip childIcon={"/assets/icons/logos/server-farm.svg"} />
           </span>
+        </div>
+        <div className={`flex items-center gap-4 justify-center`}>
+          <Link href={"/projects"}>
+            <a className={`${styles.hoverHighlight}`}>
+              <p className="flex items-center gap-4">
+                See all projects <i className="material-icons">chevron_right</i>
+              </p>
+            </a>
+          </Link>
+          <Link href={"/projects"}>
+            <a className={`${styles.hoverHighlight}`}>
+              <p className="flex items-center gap-4">
+                See all demos <i className="material-icons">chevron_right</i>
+              </p>
+            </a>
+          </Link>
         </div>
       </div>
 

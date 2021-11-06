@@ -3,7 +3,7 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-body{
+body {
   @apply bg-gray-100;
   @apply dark:bg-black;
   @apply dark:text-white;
@@ -17,19 +17,18 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-.tooltip .tooltip-content{
+.tooltip .tooltip-content {
   visibility: hidden;
   opacity: 0;
   transition: opacity 1s;
 }
 
-
-.tooltip:hover .tooltip-content{
+.tooltip:hover .tooltip-content {
   visibility: visible;
   opacity: 1;
 }
 
-section{
+section {
   scroll-snap-align: start;
 }
 

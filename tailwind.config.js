@@ -3,6 +3,9 @@ module.exports = {
   darkMode: "class", // or 'media' or 'class'
   theme: {
     extend: {
+      colors: {
+        primary: "#f63a00",
+      },
       typography(theme) {
         return {
           dark: {

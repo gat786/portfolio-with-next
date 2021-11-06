@@ -10,7 +10,7 @@ export default function NavBar() {
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
   return (
-    <div className="flex bg-white dark:bg-gray-800 dark:text-white w-full top-0 z-10 justify-between p-4 md:px-16">
+    <div className="flex bg-white dark:bg-gray-800 dark:text-white w-full top-0 z-20 justify-between p-4 md:px-16">
       <Link href="/#top-section">
         <a>
           <Image
@@ -35,7 +35,7 @@ export default function NavBar() {
             Menu
           </div>
           {showMenu && (
-            <div className="flex bg-white dark:bg-gray-800 rounded-b-xl plb-4 px-4 absolute top-10 -left-4 flex-col gap-4">
+            <div className="flex bg-white dark:bg-gray-800 rounded-b-xl plb-4 px-4 absolute top-10 z-10 -left-4 flex-col gap-4">
               <a
                 onClick={() => {
                   setShowMenu(false);
@@ -49,6 +49,11 @@ export default function NavBar() {
               <Link href="/projects">
                 <a className={`${styles.borderBottomHover} cursor-pointer`}>
                   Projects
+                </a>
+              </Link>
+              <Link href="/demos">
+                <a className={`${styles.borderBottomHover} cursor-pointer`}>
+                  Demos
                 </a>
               </Link>
               <Link href="index.html/#contact-section">
@@ -76,6 +81,11 @@ export default function NavBar() {
           <Link href="/projects">
             <a className={`${styles.borderBottomHover} cursor-pointer`}>
               Projects
+            </a>
+          </Link>
+          <Link href="/demos">
+            <a className={`${styles.borderBottomHover} cursor-pointer`}>
+              Demos
             </a>
           </Link>
           <Link href="/#contact-section">

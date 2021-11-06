@@ -1,61 +1,89 @@
 .scrollSnaps {
-    scroll-snap-type: y mandatory;
-    height: 100vh;
-    /* scroll-snap-points-y: repeat(100vh); */
-    overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  height: 100vh;
+  /* scroll-snap-points-y: repeat(100vh); */
+  overflow-y: scroll;
+}
+
+.borderBottomHover {
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  transition: all 0.5s;
+}
+
+.borderBottomHover::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: -10px;
+  height: 4px;
+  transition: width 0.5s;
+  width: 0px;
+  background: white;
+}
+
+.borderBottomHover:hover::after {
+  width: 100%;
+}
+
+.lastTwoBold {
+  font-weight: 600;
+}
+
+.square-aspect-ratio {
+  aspect-ratio: 1/1;
+}
+
+.arrow {
+  position: relative;
+  margin-right: 1rem;
+}
+
+.arrow::after {
+  transition: all 0.5s;
+  position: absolute;
+  margin-left: 0.5rem;
+  font-family: "Material Icons";
+  content: "\e5e1";
+}
+
+.dropArrow::after {
+  transform: rotate(90deg);
+}
+
+@media screen and (max-width: 450px) {
+  .hideWhenSmall {
+    visibility: hidden;
+    display: none;
   }
-  
-  .borderBottomHover{
-    width: 100%;
-    position: relative;
-    box-sizing: border-box;
-    transition: all .5s;
-  }
-  
-  .borderBottomHover::after{
-    content: '';
-    position: absolute;
-    left: 0px;
-    bottom: -10px;
-    height: 4px;
-    transition: width .5s;
-    width: 0px;
-    background: white;
-  }
-  
-  .borderBottomHover:hover::after {
-    width: 100%;
-  } 
-  
-  .lastTwoBold {
-    font-weight: 600;
-  }
-  
-  .square-aspect-ratio{
-    aspect-ratio: 1/1;
-  }
-  
-  .arrow{
-    position: relative;
-    margin-right: 1rem;
-  }
-  
-  .arrow::after{
-    transition: all .5s;
-    position: absolute;
-    margin-left: .5rem;
-    font-family: 'Material Icons';
-    content: '\e5e1';
-  }
-  
-  .dropArrow::after{
-    transform: rotate(90deg);
-  }
-  
-  @media screen and (max-width: 450px) {
-    .hideWhenSmall{
-      visibility: hidden;
-      display: none;
-    }
-  }
-  
+}
+
+.hoverHighlight {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.hoverHighlight i {
+  transition: transform 0.5s;
+}
+
+.hoverHighlight:hover i {
+  transform: rotate(360deg);
+}
+
+.hoverHighlight::after {
+  position: absolute;
+  content: "";
+  bottom: -8px;
+  height: 2px;
+  width: 0px;
+  transition: width 0.5s;
+  background-color: white;
+}
+
+.hoverHighlight:hover::after {
+  width: 100%;
+}
