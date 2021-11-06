@@ -42,18 +42,16 @@ export default function ProjectDetails(args: {
             dangerouslySetInnerHTML={{ __html: args.markdown }}
           ></div>
 
-          <div className="flex gap-4 mlb-12">
+          <div className="flex flex-wrap gap-4 mlb-12">
             Tags -
-            <div className="text-gray-400 flex gap-4">
-              {args?.frontMatter.tags?.map((tag) => (
-                <div
-                  className="underline dark:hover:text-white hover:text-black cursor-pointer"
-                  key={tag}
-                >
-                  {tag.toString()}
-                </div>
-              ))}
-            </div>
+            {args?.frontMatter.tags?.map((tag) => (
+              <div
+                className="underline dark:hover:text-white hover:text-black cursor-pointer"
+                key={tag}
+              >
+                {tag.toString()}
+              </div>
+            ))}
           </div>
         </div>
       </div>
