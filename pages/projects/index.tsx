@@ -16,7 +16,7 @@ export type Projects = {
 
 export type FrontMatter = {
   title: string;
-  date?: string;
+  createdOn?: string;
   author?: string;
   tags?: string[];
   coverImage?: string;
