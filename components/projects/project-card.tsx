@@ -11,8 +11,7 @@ export default function ProjectCard(props: {
   slug: string;
 }) {
   const frontMatter = props.projectInfo;
-  console.log(config.ASSETS + `${frontMatter?.coverImage}`);
-  
+
   return (
     <Link href={`/projects/${props.slug}`}>
       <a
@@ -31,9 +30,11 @@ export default function ProjectCard(props: {
           {frontMatter.title}
         </div>
         <div className="mx-4">{frontMatter.author}</div>
-        <div className="mx-4 text-sm">{frontMatter.date}</div>
+        <div className="mx-4 text-sm">
+          Posted on - {new Date(frontMatter.createdOn as string).toLocaleDateString()}
+        </div>
         <div className="mx-4 text-sm text-gray-700 dark:text-gray-300 flex flex-row flex-wrap gap-x-2">
-          {frontMatter.tags?.map((tag) => (
+          Tags - {frontMatter.tags?.map((tag) => (
             <div
               className="underline dark:hover:text-white hover:text-black cursor-pointer"
               key={tag}

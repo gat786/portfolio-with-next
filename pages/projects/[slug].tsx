@@ -10,6 +10,7 @@ import { FrontMatter } from ".";
 import NavBar from "../../components/NavBar";
 import Head from "next/head";
 import Footer from "../../components/Footer";
+import config from "../../config";
 
 export default function ProjectDetails(args: {
   frontMatter: FrontMatter;
@@ -26,7 +27,7 @@ export default function ProjectDetails(args: {
       <div className="flex flex-col items-center">
         <div className="relative h-80 lg:h-96 mbe-8 w-full lg:w-2/4">
           <Image
-            src={args.frontMatter?.coverImage ?? ""}
+            src={config.ASSETS + `${args?.frontMatter?.coverImage}`}
             objectFit="contain"
             layout="fill"
             alt={`${args.slug} Cover Image`}
@@ -34,7 +35,7 @@ export default function ProjectDetails(args: {
         </div>
         <div className="w-11/12 lg:w-2/4">
           <div className="flex gap-4 mlb-8 font-semibold text-sm lg:text-base">
-            <span>Posted Date - {args.frontMatter.date}</span>
+            <span>Posted Date - {new Date(args.frontMatter.createdOn as string).toLocaleDateString()}</span>
             <span>Author Name - {args.frontMatter.author}</span>
           </div>
           <div
@@ -62,14 +63,15 @@ export default function ProjectDetails(args: {
 }
 
 export async function getStaticPaths() {
-  const files = fs.readdirSync(path.join("markdown/projects"));
+  const response = await fetch(config.API_BASE + "projects", {
+    headers: { "X-Flatten": "true" },
+  });
 
-  const paths = files.map((file) => {
-    return {
-      params: {
-        slug: file.replace(".md", ""),
-      },
-    };
+  const json = await response.json();
+
+  const paths = json.items?.map((item: any) => {
+    const slug = item?.data?.slug;
+    return { params: { slug } };
   });
 
   return {
@@ -79,17 +81,24 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(args: { params: { slug: string } }) {
-  const markdownWithMeta = fs.readFileSync(
-    path.join("markdown/projects", args.params.slug + ".md")
+  const response = await fetch(
+    config.API_BASE + `projects?$filter=data/slug/iv eq '${args.params.slug}'`,
+    {
+      headers: {
+        "X-Flatten": "true",
+      },
+    }
   );
 
-  const { data: frontMatter, content } = matter(markdownWithMeta);
+  const json = await response.json();
 
-  const markdown = marked(content, { gfm: true });
+  const data = json.items[0].data;
+
+  const markdown = marked(data?.content, { gfm: true });
 
   return {
     props: {
-      frontMatter,
+      frontMatter: { ...data },
       slug: args.params.slug,
       markdown,
     },
