@@ -4,12 +4,15 @@ import Image from "next/image";
 import Link from "next/link";
 
 import styles from "../../styles/components.module.css";
+import config from "../../config";
 
 export default function ProjectCard(props: {
   projectInfo: FrontMatter;
   slug: string;
 }) {
   const frontMatter = props.projectInfo;
+  console.log(config.ASSETS + `${frontMatter?.coverImage}`);
+  
   return (
     <Link href={`/projects/${props.slug}`}>
       <a
@@ -20,7 +23,7 @@ export default function ProjectCard(props: {
             className=" rounded-t-lg"
             layout="fill"
             objectFit="cover"
-            src={frontMatter?.coverImage ?? ""}
+            src={config.ASSETS + `${frontMatter?.coverImage}`}
             alt=""
           />
         </div>

@@ -7,6 +7,7 @@ import Head from "next/head";
 import NavBar from "../../components/NavBar";
 import ProjectCard from "../../components/projects/project-card";
 import Footer from "../../components/Footer";
+import config from "../../config";
 
 export type Projects = {
   slug: string;
@@ -50,29 +51,45 @@ export default function Projects(props: { projects: Projects[] }) {
 }
 
 export async function getStaticProps() {
-  const files = fs.readdirSync(path.join("markdown/projects"));
-
-  // Get slugs and frontmatter from the posts
-  let projects = files.map((file) => {
-    // Get Slug from the markdown file
-    const slug = file.replace(".md", "");
-
-    const markdownWithMeta = fs.readFileSync(
-      path.join("markdown/projects", file),
-      "utf-8"
-    );
-
-    const { data: frontMatter } = matter(markdownWithMeta);
-
-    return {
-      slug,
-      frontMatter,
-    };
+  const response = await fetch(config.API_BASE + "projects", {
+    headers: { "X-Flatten": "true" },
   });
 
-  return {
-    props: {
-      projects,
-    },
-  };
+  const json = await response.json();
+
+  const projectCount = json.total;
+  const projects = json.items?.map((item: any) => {
+    // const markdownString = item?.data?.content?.iv;
+    const slug = item?.data?.slug;
+    const frontMatter = { ...item?.data };
+    return { slug, frontMatter };
+  });
+
+  return { props: { projects } };
+
+  // const files = fs.readdirSync(path.join("markdown/projects"));
+
+  // // Get slugs and frontmatter from the posts
+  // let projects = files.map((file) => {
+  //   // Get Slug from the markdown file
+  //   const slug = file.replace(".md", "");
+
+  //   const markdownWithMeta = fs.readFileSync(
+  //     path.join("markdown/projects", file),
+  //     "utf-8"
+  //   );
+
+  //   const { data: frontMatter } = matter(markdownWithMeta);
+
+  //   return {
+  //     slug,
+  //     frontMatter,
+  //   };
+  // });
+
+  // return {
+  //   props: {
+  //     projects,
+  //   },
+  // };
 }
