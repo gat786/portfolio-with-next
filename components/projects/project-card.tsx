@@ -11,7 +11,6 @@ export default function ProjectCard(props: {
   slug: string;
 }) {
   const frontMatter = props.projectInfo;
-  console.log(config.ASSETS + `${frontMatter?.coverImage}`);
   
   return (
     <Link href={`/projects/${props.slug}`}>
