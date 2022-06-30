@@ -51,6 +51,11 @@ export default function NavBar() {
                   Projects
                 </a>
               </Link>
+              <Link href="/events">
+                <a className={`${styles.borderBottomHover} cursor-pointer`}>
+                  Events
+                </a>
+              </Link>
               <Link href="/demos">
                 <a className={`${styles.borderBottomHover} cursor-pointer`}>
                   Demos
@@ -81,6 +86,11 @@ export default function NavBar() {
           <Link href="/projects">
             <a className={`${styles.borderBottomHover} cursor-pointer`}>
               Projects
+            </a>
+          </Link>
+          <Link href="/events">
+            <a className={`${styles.borderBottomHover} cursor-pointer`}>
+              Events
             </a>
           </Link>
           <Link href="/demos">
