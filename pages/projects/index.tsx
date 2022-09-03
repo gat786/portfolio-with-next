@@ -24,7 +24,7 @@ export type FrontMatter = {
 
 export default function Projects(props: { projects: Projects[] }) {
   return (
-    <div className="flex flex-col items-center h-full">
+    <div className="flex flex-col items-center h-full body">
       <Head>
         <title>Projects Gallery</title>
         <meta

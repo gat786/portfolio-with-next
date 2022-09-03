@@ -10,29 +10,30 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
-    "@tailwindcss/typography": "^0.4.1",
+    "@tailwindcss/typography": "^0.5.7",
     "gray-matter": "^4.0.3",
-    "next": "11.1.2",
-    "postcss-import": "^14.0.2",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
+    "next": "12.2.5",
+    "postcss-import": "^15.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "react-lottie": "^1.2.3",
     "react-social-icons": "^5.6.1",
     "sass": "^1.42.1",
-    "sharp": "^0.29.1"
+    "sharp": "^0.30.7"
   },
   "devDependencies": {
-    "@types/marked": "^3.0.1",
-    "@types/react": "17.0.20",
+    "@types/marked": "^4.0.6",
+    "@types/node": "^18.7.14",
+    "@types/react": "18.0.18",
     "@types/react-lottie": "^1.2.6",
     "autoprefixer": "^10.3.4",
-    "eslint": "7.32.0",
-    "eslint-config-next": "11.1.2",
-    "marked": "^3.0.4",
-    "next-sitemap": "^1.6.203",
+    "eslint": "8.23.0",
+    "eslint-config-next": "12.2.5",
+    "marked": "^4.1.0",
+    "next-sitemap": "^3.1.21",
     "postcss": "^8.3.6",
-    "tailwindcss": "^2.2.15",
-    "tailwindcss-logical": "^2.0.0",
-    "typescript": "4.4.3"
+    "tailwindcss": "^3.1.8",
+    "tailwindcss-logical": "^3.0.0",
+    "typescript": "4.8.2"
   }
 }

@@ -16,7 +16,7 @@ const Demos = () => {
 
       <NavBar />
 
-      <main className="flex flex-col items-center mli-4">
+      <main className="flex flex-col items-center pli-4 body">
         <div className="flex flex-col gap-4 mlb-8">
           <h2 className="text-2xl font-bold">Appwrite CSS Sample</h2>
           <p>

@@ -3,7 +3,7 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-body {
+.body {
   @apply bg-gray-100;
   @apply dark:bg-black;
   @apply dark:text-white;
