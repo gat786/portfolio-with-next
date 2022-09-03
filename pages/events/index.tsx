@@ -1,24 +1,81 @@
 import Head from "next/head";
 import React from "react";
+import Image from "next/image";
 import Footer from "../../components/Footer";
 import NavBar from "../../components/NavBar";
 
-export default function index() {
+import config from "../../config";
+
+export type EventData = {
+  slug: string;
+  frontMatter: EventsFrontMatter;
+};
+
+export type EventsFrontMatter = {
+  title: string;
+  organisedOn?: string;
+  organisers?: string;
+  tags?: string[];
+  coverImage?: string;
+  eventLocation?: string;
+  description?: string;
+  content?: string;
+};
+
+
+export default function index(props: { events: EventData[] }) {
   return (
     <div className="flex flex-col items-center h-full">
       <Head>
-        <title>Projects Gallery</title>
+        <title>Events Gallery</title>
         <meta
           name="description"
-          content="List of projects made by Ganesh and his fellow mates"
+          content="List of Events organised or Co-organised by Ganesh Tiwari"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <NavBar />
-      <div className="w-full lg:w-11/12 flex justify-center gap-4 flex-wrap body">
+      <div className="w-full flex justify-center gap-4 flex-wrap body">
+
+        {
+          props.events?.map((event: EventData) => {
+            console.log(event?.frontMatter?.coverImage);
+            
+            return <div key={event?.slug}>
+              
+              <Image 
+                height={250}
+                width={250}
+                objectFit="cover"
+                // layout="fill"
+                objectPosition="relative"
+                src={`${config.ASSETS}${event.frontMatter?.coverImage}`} />
+              {event.frontMatter?.coverImage}
+            </div>
+          })
+        }
 
       </div>
       <Footer />
     </div>
   );
+}
+
+
+export async function getStaticProps() {
+  const response = await fetch(config.API_BASE + "events", {
+    headers: { "X-Flatten": "true" },
+  });
+
+  const json = await response.json();
+
+  const eventsCount = json.total;
+  const events = json.items?.map((item: any) => {
+    // const markdownString = item?.data?.content?.iv;
+    const slug = item?.data?.slug;
+    const frontMatter = { ...item?.data };
+    return { slug, frontMatter };
+  });
+
+  return { props: { events: events } };
 }
