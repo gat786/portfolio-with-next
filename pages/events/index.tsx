@@ -5,6 +5,7 @@ import Footer from "../../components/Footer";
 import NavBar from "../../components/NavBar";
 
 import config from "../../config";
+import { EventCard } from "../../components/events/event-card";
 
 export type EventData = {
   slug: string;
@@ -39,19 +40,9 @@ export default function index(props: { events: EventData[] }) {
 
         {
           props.events?.map((event: EventData) => {
-            console.log(event?.frontMatter?.coverImage);
-            
-            return <div key={event?.slug}>
-              
-              <Image 
-                height={250}
-                width={250}
-                objectFit="cover"
-                // layout="fill"
-                objectPosition="relative"
-                src={`${config.ASSETS}${event.frontMatter?.coverImage}`} />
-              {event.frontMatter?.coverImage}
-            </div>
+            return <EventCard 
+              key={event.slug} 
+              eventFrontMatter={event.frontMatter}/>
           })
         }
 
