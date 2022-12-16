@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import marked from "marked";
+import { marked } from "marked";
 
 import React from "react";
 import Image from "next/image";
@@ -94,7 +94,7 @@ export async function getStaticProps(args: { params: { slug: string } }) {
 
   const data = json.items[0].data;
 
-  const markdown = marked(data?.content, { gfm: true });
+  const markdown = marked.parse(data?.content, { gfm: true });
 
   return {
     props: {
