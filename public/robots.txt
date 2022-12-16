@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://gats.dev
+
+# Sitemaps
+Sitemap: https://gats.dev/sitemap.xml
