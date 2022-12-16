@@ -15,25 +15,25 @@ export default function ProjectCard(props: {
   return (
     <Link href={`/projects/${props.slug}`}>
       <a
-        className={`bg-white dark:bg-gray-700 dark:text-white h-96 w-72 rounded-xl flex flex-col gap-2 border dark:border-gray-500`}
+        className={`bg-white dark:bg-zinc-800 dark:text-white h-96 w-72 rounded-xl flex flex-col gap-2 shadow-md dark:shadow-md dark:border-gray-500`}
       >
-        <div className="h-48 relative">
+        <div className="h-48 relative border-b border-gray-700 dark:border-white">
           <Image
-            className=" rounded-t-lg"
+            className="rounded-t-lg"
             layout="fill"
             objectFit="cover"
             src={config.ASSETS + `${frontMatter?.coverImage}`}
             alt=""
           />
         </div>
-        <div className="text-2xl font-bold mx-4 overflow-ellipsis overflow-hidden whitespace-nowrap">
+        <div className="text-xl font-bold font-sans mx-4 overflow-ellipsis overflow-hidden whitespace-nowrap">
           {frontMatter.title}
         </div>
-        <div className="mx-4">{frontMatter.author}</div>
-        <div className="mx-4 text-sm">
+        <div className="mx-4 text-md">{frontMatter.author}</div>
+        <div className="mx-4 text-xs dark:text-gray-200">
           Posted on - {new Date(frontMatter.createdOn as string).toLocaleDateString()}
         </div>
-        <div className="mx-4 text-sm text-gray-700 dark:text-gray-300 flex flex-row flex-wrap gap-x-2">
+        <div className="mx-4 text-sm text-zinc-800 dark:text-gray-500 flex flex-row flex-wrap gap-x-2">
           Tags - {frontMatter.tags?.map((tag) => (
             <div
               className="underline dark:hover:text-white hover:text-black cursor-pointer"

@@ -30,7 +30,7 @@ const Home: NextPage = () => {
           <NavBar />
         </div>
         <div
-          className={`dark:bg-black bg-gray-200 dark:text-white ${styles.scrollSnaps}`}
+          className={`dark:text-white ${styles.scrollSnaps}`}
         >
           <PersonalInfo />
           <ProjectsInfo />
