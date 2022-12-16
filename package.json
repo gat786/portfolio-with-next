@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.7",
+    "date-fns": "^2.29.3",
     "gray-matter": "^4.0.3",
     "next": "12.2.5",
     "postcss-import": "^15.0.0",
