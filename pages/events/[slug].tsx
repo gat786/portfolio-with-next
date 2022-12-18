@@ -6,14 +6,15 @@ import { marked } from "marked";
 import React from "react";
 import Image from "next/image";
 
-import { FrontMatter } from ".";
+import { EventsFrontMatter } from ".";
 import NavBar from "../../components/NavBar";
 import Head from "next/head";
 import Footer from "../../components/Footer";
 import config from "../../config";
+import { format } from "date-fns";
 
-export default function ProjectDetails(args: {
-  frontMatter: FrontMatter;
+export default function EventDetails(args: {
+  frontMatter: EventsFrontMatter;
   slug: string;
   markdown: string;
 }) {
@@ -33,13 +34,21 @@ export default function ProjectDetails(args: {
             alt={`${args.slug} Cover Image`}
           />
         </div>
+        <h2 className="text-xl">
+            {args.frontMatter.title}
+        </h2>
+        <div className="flex flex-col gap-1 mlb-4 font-light text-sm lg:text-base dark:text-slate-400 text-center">
+            <span>Date - {
+                format(
+                    new Date(args.frontMatter.organisedOn as string),
+                    "PPPP"
+                )
+            }</span>
+            <span>Organisers - {args.frontMatter.organisers}</span>
+        </div>
         <div className="w-11/12 lg:w-2/4">
-          <div className="flex gap-4 mlb-8 font-semibold text-sm lg:text-base">
-            <span>Posted Date - {new Date(args.frontMatter.createdOn as string).toLocaleDateString()}</span>
-            <span>Author Name - {args.frontMatter.author}</span>
-          </div>
           <div
-            className="prose-lg dark:prose-dark mlb-8 mbe-16"
+            className="prose-xl dark:prose-dark mlb-8 mbe-16"
             dangerouslySetInnerHTML={{ __html: args.markdown }}
           ></div>
 
@@ -63,7 +72,7 @@ export default function ProjectDetails(args: {
 }
 
 export async function getStaticPaths() {
-  const response = await fetch(config.API_BASE + "projects", {
+  const response = await fetch(config.API_BASE + "events", {
     headers: { "X-Flatten": "true" },
   });
 
@@ -82,7 +91,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(args: { params: { slug: string } }) {
   const response = await fetch(
-    config.API_BASE + `projects?$filter=data/slug/iv eq '${args.params.slug}'`,
+    config.API_BASE + `events?$filter=data/slug/iv eq '${args.params.slug}'`,
     {
       headers: {
         "X-Flatten": "true",
@@ -94,7 +103,7 @@ export async function getStaticProps(args: { params: { slug: string } }) {
 
   const data = json.items[0].data;
 
-  const markdown = marked.parse(data?.content, { gfm: true });
+  const markdown = marked.parse(data?.content ?? "", { gfm: true });
 
   return {
     props: {

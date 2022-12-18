@@ -42,7 +42,9 @@ export default function index(props: { events: EventData[] }) {
           props.events?.map((event: EventData) => {
             return <EventCard 
               key={event.slug} 
-              eventFrontMatter={event.frontMatter}/>
+              eventFrontMatter={event.frontMatter}
+              slug={event.slug}
+            />
           })
         }
 

@@ -24,7 +24,7 @@ export default function PersonalInfo() {
                   I am Ganesh Tiwari
                 </div>
                 <div className="inline leading-relaxed">
-                  I am a Software Engineer currently working as a UI Engineer
+                  I am a Software Engineer currently working as a Jr DevOps Engineer
                 </div>
               </div>
 
